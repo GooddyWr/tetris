@@ -435,17 +435,17 @@
         <div class="dl-card">
           <div class="dl-card-title"><span class="icon"></span> <span style="color:var(--cyan)">macOS</span></div>
           <div class="dl-card-desc">macOS 10.14+<br>Python 3 предустановлен<br>Терминал.app / iTerm2</div>
-          <a href="tetris.py" download="tetris.py" class="dl-btn mac">⬇ Скачать tetris.py</a>
+          <a href="tetris.py" download="tetris.py" class="dl-btn mac" onclick="switchToHowTo()">⬇ Скачать tetris.py</a>
         </div>
         <div class="dl-card">
           <div class="dl-card-title"><span class="icon">🐧</span> <span style="color:var(--orange)">Linux</span></div>
           <div class="dl-card-desc">Ubuntu, Debian, Arch, Fedora...<br>Python 3 обычно уже есть<br>Любой терминальный эмулятор</div>
-          <a href="tetris.py" download="tetris.py" class="dl-btn linux">⬇ Скачать tetris.py</a>
+          <a href="tetris.py" download="tetris.py" class="dl-btn linux" onclick="switchToHowTo()">⬇ Скачать tetris.py</a>
         </div>
         <div class="dl-card">
           <div class="dl-card-title"><span class="icon">🪟</span> <span style="color:var(--purple)">Windows</span></div>
           <div class="dl-card-desc">Windows 10/11<br>Нужен Python 3 + windows-curses<br>PowerShell / Windows Terminal</div>
-          <a href="tetris.py" download="tetris.py" class="dl-btn win">⬇ Скачать tetris.py</a>
+          <a href="tetris.py" download="tetris.py" class="dl-btn win" onclick="switchToHowTo()">⬇ Скачать tetris.py</a>
         </div>
       </div>
 
@@ -658,6 +658,16 @@
 </div>
 
 <script>
+  function switchToHowTo() {
+  setTimeout(() => {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('howto').classList.add('active');
+    document.querySelector('.tab[onclick="showTab(\'howto\')"]').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 200);
+}
+  
 function showTab(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
