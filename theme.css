@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════
+   theme.css — цвета и переменные
+   Меняй здесь, чтобы изменить цветовую схему
+   ═══════════════════════════════════════════ */
+
+/* ── ТЁМНАЯ ТЕМА (Dracula-style) ── */
+:root {
+  --bg:           #1a1b26;
+  --terminal-bg:  #24283b;
+  --bar:          #1f2335;
+  --border:       #3b4261;
+  --border-hover: #565f89;
+  --text:         #c0caf5;
+  --dim:          #565f89;
+  --dim2:         #9aa5ce;
+
+  --green:        #9ece6a;
+  --cyan:         #7dcfff;
+  --pink:         #f7768e;
+  --orange:       #ff9e64;
+  --yellow:       #e0af68;
+  --purple:       #bb9af7;
+  --red:          #f7768e;
+  --teal:         #73daca;
+
+  --dot-red:      #f7768e;
+  --dot-yellow:   #e0af68;
+  --dot-green:    #9ece6a;
+
+  --prompt:       #9ece6a;
+  --cursor-color: #c0caf5;
+
+  /* Tetris piece colours */
+  --piece-I:  #7dcfff;
+  --piece-O:  #e0af68;
+  --piece-T:  #bb9af7;
+  --piece-S:  #9ece6a;
+  --piece-Z:  #f7768e;
+  --piece-J:  #2ac3de;
+  --piece-L:  #ff9e64;
+
+  /* Shadows */
+  --shadow-window: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
+  --shadow-glow-green:  0 0 20px rgba(158,206,106,0.15);
+  --shadow-glow-purple: 0 0 20px rgba(187,154,247,0.15);
+}
+
+/* ── СВЕТЛАЯ ТЕМА (автоматически) ── */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:           #e1e2e7;
+    --terminal-bg:  #f0f0f5;
+    --bar:          #d5d6e0;
+    --border:       #b4b5c0;
+    --border-hover: #8489a0;
+    --text:         #3760bf;
+    --dim:          #8489a0;
+    --dim2:         #6172a0;
+
+    --green:        #587539;
+    --cyan:         #0e6fad;
+    --pink:         #c64343;
+    --orange:       #965027;
+    --yellow:       #8f5e15;
+    --purple:       #7847bd;
+    --red:          #c64343;
+    --teal:         #166775;
+
+    --dot-red:      #e06c75;
+    --dot-yellow:   #d19a66;
+    --dot-green:    #98c379;
+
+    --prompt:       #587539;
+    --cursor-color: #3760bf;
+
+    --piece-I:  #0e6fad;
+    --piece-O:  #8f5e15;
+    --piece-T:  #7847bd;
+    --piece-S:  #587539;
+    --piece-Z:  #c64343;
+    --piece-J:  #166775;
+    --piece-L:  #965027;
+
+    --shadow-window: 0 20px 60px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.08);
+    --shadow-glow-green:  0 0 16px rgba(88,117,57,0.12);
+    --shadow-glow-purple: 0 0 16px rgba(120,71,189,0.12);
+  }
+}

@@ -1,0 +1,272 @@
+/* ═══════════════════════════════════════════
+   components.css — навигация, секции, блоки
+   ═══════════════════════════════════════════ */
+
+/* ── NAV TABS ── */
+.nav {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.tab {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--dim2);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.1s;
+  letter-spacing: 0.04em;
+}
+.tab:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  transform: translateY(-1px);
+}
+.tab.active {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(158,206,106,0.08);
+}
+
+/* ── SECTIONS ── */
+.section { display: none; }
+.section.active {
+  display: block;
+  animation: slideIn 0.22s ease both;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── PROMPT LINE ── */
+.prompt-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  line-height: 1.65;
+  flex-wrap: wrap;
+}
+.prompt-sign {
+  color: var(--prompt);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+.cmd    { color: var(--cyan); }
+.arg    { color: var(--orange); }
+.flag   { color: var(--purple); }
+.string { color: var(--yellow); }
+.comment { color: var(--dim); font-style: italic; }
+
+/* ── OUTPUT BLOCK ── */
+.output-block {
+  margin: 6px 0 22px 18px;
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.18);
+  border-left: 3px solid var(--border);
+  border-radius: 0 8px 8px 0;
+  line-height: 1.8;
+  font-size: 13.5px;
+  transition: background 0.3s;
+}
+.output-block p { margin-bottom: 3px; }
+.output-block p:last-child { margin-bottom: 0; }
+
+/* ── DOWNLOAD CARDS ── */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 12px 0 24px;
+}
+.dl-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  background: rgba(0,0,0,0.12);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.dl-card:hover {
+  border-color: var(--green);
+  box-shadow: var(--shadow-glow-green);
+  transform: translateY(-3px);
+}
+.dl-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dl-card-desc {
+  font-size: 12px;
+  color: var(--dim);
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.dl-btn {
+  display: inline-block;
+  background: var(--green);
+  color: var(--bg);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
+  letter-spacing: 0.05em;
+}
+.dl-btn:hover { filter: brightness(1.12); transform: scale(1.03); }
+.dl-btn.mac   { background: var(--cyan);   color: var(--bg); }
+.dl-btn.win   { background: var(--purple); color: var(--bg); }
+.dl-btn.linux { background: var(--orange); color: var(--bg); }
+
+/* ── HOW TO RUN ── */
+.os-section { margin-bottom: 30px; }
+.os-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.os-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.code-block {
+  background: rgba(0,0,0,0.28);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.code-block::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 0; right: 0;
+  font-size: 10px;
+  color: var(--dim);
+  background: var(--border);
+  padding: 2px 10px;
+  border-radius: 0 8px 0 6px;
+  letter-spacing: 0.07em;
+}
+.code-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.code-line:last-of-type { margin-bottom: 0; }
+
+.copy-btn {
+  position: absolute;
+  bottom: 10px; right: 10px;
+  background: var(--border);
+  border: none;
+  color: var(--dim2);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.copy-btn:hover { background: var(--green); color: var(--bg); }
+.copy-btn.copied { background: var(--green); color: var(--bg); }
+
+.note-box {
+  border: 1px solid var(--yellow);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: rgba(224,175,104,0.06);
+  font-size: 12.5px;
+  color: var(--yellow);
+  margin: 12px 0;
+  line-height: 1.6;
+}
+.note-box b { font-weight: 700; }
+
+/* ── CURSOR BLINK ── */
+.cursor {
+  display: inline-block;
+  width: 9px; height: 16px;
+  background: var(--cursor-color);
+  vertical-align: middle;
+  margin-left: 2px;
+  border-radius: 2px;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ── CONTROLS TABLE ── */
+.ctrl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 8px 0;
+}
+.ctrl-table td { padding: 7px 12px; }
+.ctrl-table tr { border-radius: 4px; }
+.ctrl-table tr:nth-child(odd) { background: rgba(255,255,255,0.03); }
+.ctrl-table td:first-child {
+  color: var(--cyan);
+  font-weight: 700;
+  white-space: nowrap;
+  width: 160px;
+}
+kbd {
+  background: var(--border);
+  border: 1px solid var(--border-hover);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--text);
+}
+
+/* ══════════════════════════════
+   АДАПТИВНОСТЬ — МОБИЛЬНЫЕ
+   ══════════════════════════════ */
+@media (max-width: 600px) {
+  .nav { gap: 5px; margin-bottom: 18px; }
+  .tab { font-size: 12px; padding: 6px 12px; }
+
+  .output-block { margin-left: 0; font-size: 12.5px; }
+
+  .download-grid { grid-template-columns: 1fr; }
+
+  .ctrl-table td:first-child { width: 120px; }
+
+  .code-line { font-size: 11.5px; gap: 6px; }
+
+  .prompt-sign { font-size: 12px; }
+
+  .prompt-line { font-size: 12.5px; }
+}
+
+@media (max-width: 380px) {
+  .tab { font-size: 11px; padding: 5px 9px; }
+  .ctrl-table td:first-child { width: 100px; }
+}
